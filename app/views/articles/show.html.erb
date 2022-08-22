@@ -1,5 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
+<% if @article.photos.attached? %>
+  <% @article.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+<% else %>
+  <img src="https://kbimages1-a.akamaihd.net/27e2c255-aabe-4268-907d-2ecd98fe0131/1200/1200/False/it-s-kind-of-a-funny-story.jpg" height="300" width="200">
+<% end %>
+
 <%= render @article %>
 
 <div>
